@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { EmailService } from "./services/email.mjs";
 import dotenv from "dotenv";
+import { sendEmail } from "./services/email.mjs";
 
 dotenv.config();
 
@@ -23,11 +23,7 @@ app.get("/", (req, res) => {
 app.post("/api/send-otp", async (req, res) => {
   const { otp, email } = req.body;
 
-  await EmailService.sendEmail(
-    email,
-    "OTP Verification",
-    `Your OTP is: ${otp}`
-  );
+  await sendEmail(otp, email);
 
   res.json({ message: "OTP sent successfully" });
 });
