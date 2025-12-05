@@ -12,7 +12,7 @@ export const sendEmail = async (otp, email) =>
   });
 
 export const sendEmailLummy = async (form, email) => {
-  const formattedForm = Array.isArray(form)
+  const formattedForm = Array.isArray(form.words)
     ? form.map((item) => `<li>${item}</li>`).join("")
     : `<li>${form}</li>`;
 
@@ -23,6 +23,7 @@ export const sendEmailLummy = async (form, email) => {
     html: `
       <div>
         <strong>Your form submission:</strong>
+        <span>${form.name}</span>
         <ul>${formattedForm}</ul>
       </div>
     `,
