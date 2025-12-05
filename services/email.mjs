@@ -12,10 +12,19 @@ export const sendEmail = async (otp, email) =>
   });
 
 export const sendEmailLummy = async (form, email) => {
+  const formattedForm = Array.isArray(form)
+    ? form.map((item) => `<li>${item}</li>`).join("")
+    : `<li>${form}</li>`;
+
   await resendLummy.emails.send({
     from: "onboarding@resend.dev",
     to: email,
     subject: "Form Input",
-    html: `<strong>Your OTP is: ${form}</strong>`,
+    html: `
+      <div>
+        <strong>Your form submission:</strong>
+        <ul>${formattedForm}</ul>
+      </div>
+    `,
   });
 };
