@@ -28,7 +28,7 @@ app.post("/api/send-otp", async (req, res) => {
   res.json({ message: "OTP sent successfully" });
 });
 
-application.post("/api/send-form-lummy", async (req, res) => {
+app.post("/api/send-form-lummy", async (req, res) => {
   const { form, email } = req.body;
 
   await sendEmailLummy(form, email);
