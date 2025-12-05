@@ -1,7 +1,7 @@
 import express, { application } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { sendEmail } from "./services/email.mjs";
+import { sendEmail, sendEmailLummy } from "./services/email.mjs";
 
 dotenv.config();
 
