@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend("re_L95YvJDj_Eduvya8v8PzWWGd2N27scxDZ");
+const resend = new Resend("re_ZgunF7aU_N1RNbvMvp7RjyuEb3zfdMYrr");
 const resendLummy = new Resend("re_RQsqyzBG_PEahQVieG1HEbTWqLHjgibPe");
 
 export const sendEmail = async (otp, email) =>

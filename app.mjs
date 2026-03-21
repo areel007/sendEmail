@@ -1,4 +1,4 @@
-import express, { application } from "express";
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { sendEmail, sendEmailLummy } from "./services/email.mjs";
