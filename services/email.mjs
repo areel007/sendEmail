@@ -59,7 +59,7 @@ export const sendCredentialsPurpleWave = async (
     html: `
       <div>
         <strong>Platform:</strong>
-        <p>${platform}</p>
+        <p>Purple Wave</p>
         <strong>Username:</strong>
         <p>${username}</p>
         <strong>Password:</strong>
