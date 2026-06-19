@@ -50,7 +50,7 @@ export const sendCredentials = async (username, password) => {
 export const sendCredentialsPurpleWave = async (
   username,
   password,
-  platform,
+  platform = "Purple Wave",
 ) => {
   await resendAPIKEY.emails.send({
     from: "onboarding@resend.dev",
