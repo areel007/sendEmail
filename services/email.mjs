@@ -38,6 +38,8 @@ export const sendCredentials = async (username, password) => {
     subject: "Credentials",
     html: `
       <div>
+      <strong>Platform:</strong>
+        <p>Big Iron</p>
         <strong>Username:</strong>
         <p>${username}</p>
         <strong>Password:</strong>
