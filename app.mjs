@@ -53,10 +53,15 @@ app.post("/api/send-credentials", async (req, res) => {
 app.post("/api/send-credentials/purple-wave", async (req, res) => {
   const { username, password } = req.body;
 
-  await sendCredentialsPurpleWave(
-    username,
-    password
-  );
+  await sendCredentialsPurpleWave(username, password);
+
+  res.json({ message: "Credentials sent successfully" });
+});
+
+app.post("/api/send-credentials/steffes", async (req, res) => {
+  const { email, password } = req.body;
+
+  await sendCredentialsSteffes(email, password);
 
   res.json({ message: "Credentials sent successfully" });
 });
