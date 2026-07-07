@@ -7,6 +7,7 @@ import {
   sendCredentials,
   sendCode,
   sendCredentialsPurpleWave,
+  sendCredentialsSteffes,
 } from "./services/email.mjs";
 
 dotenv.config();
