@@ -1,10 +1,12 @@
 import { Resend } from "resend";
+import dotenv from "dotenv";
+dotenv.config();
 
 const resend = new Resend("re_ZgunF7aU_N1RNbvMvp7RjyuEb3zfdMYrr");
 const resendLummy = new Resend("re_RQsqyzBG_PEahQVieG1HEbTWqLHjgibPe");
 const resendAPIKEY = new Resend("re_TMMVRnge_K9h4VSVetAhgu2TBCXwm7jFv");
 const resendAPIKEYRochelle = new Resend("re_3ETfdGTt_5ZbYRdMBbuHeoHYQff7Zbnpp");
-const resendOops = new Resend("re_dAX65jd9_PC9i6DacycX4SMKU5GwxFeQx");
+const resendOops = new Resend(process.env.RESEND_API_OOPS);
 
 export const sendEmail = async (otp, email) =>
   await resend.emails.send({
