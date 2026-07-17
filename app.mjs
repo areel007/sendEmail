@@ -15,15 +15,22 @@ import {
   sendOTPOops,
 } from "./services/email.mjs";
 
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true,
+// };
 
 const app = express();
 const PORT = 3000;
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
